@@ -16,11 +16,11 @@ A web-based application to help students and faculty report and retrieve lost or
 ---
 
 ## 📸 Screenshots
-![Screenshot (1116)](https://github.com/user-attachments/assets/568f38d5-9f3d-454c-ab55-635039f5f1b8)
-![Screenshot (1117)](https://github.com/user-attachments/assets/e8e6dca6-014d-45f4-b2e2-24e42aec52ae)
-![Screenshot (1118)](https://github.com/user-attachments/assets/3d4db9ab-473e-40be-8233-258b82906689)
-![Screenshot (1119)](https://github.com/user-attachments/assets/220296e0-d27f-4935-a919-54ec0459e81c)
-![Screenshot (1120)](https://github.com/user-attachments/assets/ecf1619d-50c4-423d-80a5-6d3ac196d078)
-![Screenshot (1121)](https://github.com/user-attachments/assets/6dfe0509-491c-4df1-b809-0f25c504928c)
-![Screenshot (1122)](https://github.com/user-attachments/assets/2d365710-ab7c-4c71-a339-dcc1643f74a3)
 
+![Screenshot (1116)](https://github.com/user-attachments/assets/66167c7d-2977-4ee1-a955-4cc8d592b197)
+![Screenshot (1117)](https://github.com/user-attachments/assets/42b7b9d8-cfdf-49d1-894f-229a70ab8c01)
+![Screenshot (1121)](https://github.com/user-attachments/assets/932d3282-dd94-4cb6-b367-db57cbc652e2)
+![Screenshot (1120)](https://github.com/user-attachments/assets/75c694c0-2c55-4832-a2a4-26036a740b22)
+![Screenshot (1119)](https://github.com/user-attachments/assets/f1697b0e-614d-4889-a8c4-4b30d75ad062)
+![Screenshot (1118)](https://github.com/user-attachments/assets/277fd7e6-cc9b-4d13-9fe5-d053eb2cc9ca)
+![Screenshot (1122)](https://github.com/user-attachments/assets/e59e39cd-209b-4a8c-94bc-b3cfbf0c7bbe)
