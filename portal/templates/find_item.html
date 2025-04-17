@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find Item</title>
+    <link rel="stylesheet" href="{% static 'find_item.css' %}">
+   
+</head>
+<body>
+    <nav>
+        <div class="logo">LOST & FOUND</div>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'find_item' %}">Find item</a>
+        <a href="{% url 'post_item' %}">Post item</a>
+        <a href="{% url 'about_us' %}">About us</a>
+        <a href="{% url 'my_posts' %}">My Posts</a>
+        <a href="{% url 'logout' %}">Logout</a>
+
+    </nav>
+    <h1>Lost & Found Items</h1>
+
+    <div class="items-container">
+        {% for item in items %}
+        <div class="card">
+            {% if item.image %}
+            <img src="{{ item.image.url }}" alt="Item Image">
+            {% else %}
+            <img src="https://via.placeholder.com/300x200.png?text=No+Image" alt="No Image">
+            {% endif %}
+            <div class="card-content">
+                <div class="card-title">{{ item.title }}</div>
+                <div class="card-description">{{ item.description }}</div>
+                <a href="{% url 'item_detail' item.id %}" class="view-details-btn">View Details</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Posts</title>
+    <link rel="stylesheet" href="{% static 'my_posts.css' %}">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">LOST & FOUND</div>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'find_item' %}">Find item</a>
+        <a href="{% url 'post_item' %}">Post item</a>
+        <a href="{% url 'about_us' %}">About us</a>
+        <a href="{% url 'my_posts' %}">My Posts</a>
+        <a href="{% url 'logout' %}">Logout</a>
+       
+
+    </nav>
+
+    <div class="content">
+        <h1>My Posted Items</h1>
+        {% for item in items %}
+            <div class="item-card">
+                <h3>{{ item.title }}</h3>
+                <img src="{{ item.image.url }}" width="200" />
+                <p>{{ item.description|truncatechars:100 }}</p>
+                <form method="POST" action="{% url 'delete_item' item.id %}">
+                    {% csrf_token %}
+                    <button type="submit">Delete</button>
+                </form>
+            </div>
+        {% empty %}
+            <p>No items posted yet.</p>
+        {% endfor %}
+        
+    </div>
+</body>
+</html>

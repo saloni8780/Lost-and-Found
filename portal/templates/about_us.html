@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post Item</title>
+    <link rel="stylesheet" href="{% static 'about_us.css' %}">
+</head>
+
+<body>
+    <nav>
+        <div class="logo">LOST & FOUND</div>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'find_item' %}">Find item</a>
+        <a href="{% url 'post_item' %}">Post item</a>
+        <a href="{% url 'about_us' %}">About us</a>
+        <a href="{% url 'my_posts' %}">My Posts</a>
+        <a href="{% url 'logout' %}">Logout</a>
+       
+
+    </nav>
+<div class=content>
+    <h1>About Us</h1>
+       <p> Welcome to the NIE Lost & Found Portal! We are here to help you recover lost items or return items you've found. Our platform makes it easy to post lost or found belongings, search for missing items, and connect with others in the NIE community.
+        
+        Our Mission
+        Our mission is to simplify the process of reuniting lost items with their owners, while fostering a sense of responsibility and community. We aim to provide a user-friendly and efficient solution for everyone at NIE.
+        
+        How It Works
+        Post an Item: Share details of a lost or found item.
+        
+        Search for Items: Browse through posts to find your lost belongings.
+        
+        Get In Touch: Contact the poster to arrange the return.
+        
+        Thank you for being part of our community!</p>
+    </div>
+    <div class="about-sidebar">
+        <h3>Developed by:</h3>
+        <p><strong>Saloni Kumari</strong></p>
+        <p>4th Sem, CSE</p>
+        <p><a href="https://www.linkedin.com/in/saloni-kumari-608072291/" target="_blank">LinkedIn Profile</a></p>
+        
+    </div>
+</body>
+</html>
