@@ -21,3 +21,15 @@ class LostFoundItem(models.Model):
 
     def __str__(self):
         return f"{self.item_type} - {self.title}"
+class ClaimDetail(models.Model):
+    item = models.OneToOneField(LostFoundItem, on_delete=models.CASCADE)
+    claimant_name = models.CharField(max_length=100)
+    year = models.CharField(max_length=10)
+    department = models.CharField(max_length=100)
+    phone = models.CharField(max_length=15)
+    usn = models.CharField(max_length=20)
+    claimed_at = models.DateTimeField(auto_now_add=True)
+    is_claimed = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"Claim for {self.item.title} by {self.claimant_name}"

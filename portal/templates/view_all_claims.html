@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Claims</title>
+    <link rel="stylesheet" href="{% static 'view_all_claims.css' %}">
+</head>
+<body>
+    <nav>
+        <div class="logo">LOST & FOUND</div>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'find_item' %}">Find item</a>
+        <a href="{% url 'post_item' %}">Post item</a>
+        <a href="{% url 'view_all_claims' %}">Claim History</a>
+        <a href="{% url 'about_us' %}">About us</a>
+        <a href="{% url 'my_posts' %}">My Posts</a>
+        <a href="{% url 'logout' %}">Logout</a>
+    </nav>
+
+    <div class="content">
+        <h1>All Claimed Items</h1>
+        <div class="claim-grid">
+            {% for claim in claims %}
+            <div class="claim-card">
+                <img src="{{ claim.item.image.url }}" alt="Item Image" class="item-image">
+                <div class="claim-card-content">
+                    <h3>Item: {{ claim.item.title }}</h3>
+                    
+                    <h4>Claimed By:</h4>
+                    <p><strong>Name:</strong> {{ claim.claimant_name }}</p>
+                    <p><strong>Year:</strong> {{ claim.year }}</p>
+                    <p><strong>Department:</strong> {{ claim.department }}</p>
+                    <p><strong>Phone:</strong> {{ claim.phone }}</p>
+                    <p><strong>USN:</strong> {{ claim.usn }}</p>
+
+                    <hr>
+
+                    <h4>Posted By:</h4>
+                    <p><strong>Name:</strong> {{ claim.item.name}}</p>
+                    <p><strong>Phone:</strong> {{ claim.item.phone }}</p>
+                </div>
+            </div>
+            {% empty %}
+                <p>No claims yet!</p>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

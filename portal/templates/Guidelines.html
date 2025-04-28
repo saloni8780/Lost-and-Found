@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Community Guidelines</title>
+    <link rel="stylesheet" href="{% static 'Know.css' %}">
+</head>
+<body>
+    <div class="section">
+        <div class="card">
+            <h2 class="heading">📜 Community Guidelines</h2>
+            <ul class="guidelines">
+                <li>🚫 <strong>No Spamming:</strong> Avoid posting irrelevant or repeated content.</li>
+                <li>📸 <strong>Appropriate Images Only:</strong> Only upload relevant photos — no offensive or misleading images.</li>
+                <li>📝 <strong>Accurate Information:</strong> Ensure all item descriptions and contact details are correct.</li>
+                <li>🤝 <strong>Respect Privacy:</strong> Use contact info only for returning items. Misuse may result in a ban.</li>
+                <li>🚨 <strong>Report Issues:</strong> See something suspicious? Inform the admin immediately.</li>
+            </ul>
+            <p class="footer-note">✨ Let’s build a responsible and helpful community together!</p>
+            <a href="{% url 'home' %}" class="btn">⬅ Back</a>
+        </div>
+    </div>
+</body>
+</html>

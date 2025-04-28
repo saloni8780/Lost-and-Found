@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import LostFoundItem
 from django import forms
+from .models import ClaimDetail
 
 class CollegeUserCreationForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -47,3 +48,10 @@ class LostFoundItemForm(forms.ModelForm):
     class Meta:
         model = LostFoundItem
         fields = ['name', 'email', 'phone', 'title', 'description', 'item_type', 'location', 'date', 'image']
+
+
+
+class ClaimDetailForm(forms.ModelForm):
+    class Meta:
+        model = ClaimDetail
+        fields = ['claimant_name', 'year', 'department', 'phone', 'usn']

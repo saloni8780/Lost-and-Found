@@ -10,14 +10,16 @@
 <body>
     <nav>
         <div class="logo">LOST & FOUND</div>
-        <a href="{% url 'home' %}">Home</a>
-        <a href="{% url 'find_item' %}">Find item</a>
-        <a href="{% url 'post_item' %}">Post item</a>
-        <a href="{% url 'about_us' %}">About us</a>
-        <a href="{% url 'my_posts' %}">My Posts</a>
-        <a href="{% url 'logout' %}">Logout</a>
-       
-
+            
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'find_item' %}">Find item</a>
+            <a href="{% url 'post_item' %}">Post item</a>
+            <a href="{% url 'view_all_claims' %}">Claim History</a>
+            <a href="{% url 'about_us' %}">About us</a>
+            <a href="{% url 'my_posts' %}">My Posts</a>
+            <a href="{% url 'logout' %}">Logout</a>
+            
+        
     </nav>
 <div class=content>
     <h1>About Us</h1>
@@ -35,12 +37,6 @@
         
         Thank you for being part of our community!</p>
     </div>
-    <div class="about-sidebar">
-        <h3>Developed by:</h3>
-        <p><strong>Saloni Kumari</strong></p>
-        <p>4th Sem, CSE</p>
-        <p><a href="https://www.linkedin.com/in/saloni-kumari-608072291/" target="_blank">LinkedIn Profile</a></p>
-        
-    </div>
+   
 </body>
 </html>

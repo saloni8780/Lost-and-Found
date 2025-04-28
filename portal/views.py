@@ -1,12 +1,12 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect, get_object_or_404
 from django.http import HttpResponse
 from .forms import CollegeUserCreationForm , LoginForm
 from django.contrib.auth import login,authenticate, logout
-from .forms import LostFoundItemForm
+from .forms import LostFoundItemForm,ClaimDetailForm
 from django.contrib.auth.decorators import login_required
 from django.db import IntegrityError
 from django.contrib import messages
-from . models import LostFoundItem
+from . models import LostFoundItem,ClaimDetail
 
 
 # Create your views here.
@@ -16,6 +16,9 @@ from . models import LostFoundItem
 def home(request):
     
     return render(request, 'home.html')
+def Guidelines(request):
+    
+    return render(request, 'Guidelines.html')
 def signup_view(request):
     if request.method == 'POST':
         form = CollegeUserCreationForm(request.POST)
@@ -75,8 +78,10 @@ def post_item_view(request):
         form = LostFoundItemForm()
     return render(request, 'post_item.html', {'form': form})
 def find_item(request):
-    items = LostFoundItem.objects.all()  
+    claimed_items = ClaimDetail.objects.values_list('item_id', flat=True)
+    items = LostFoundItem.objects.exclude(id__in=claimed_items)
     return render(request, 'find_item.html', {'items': items})
+
 def item_detail(request, item_id):
     try:
         item = LostFoundItem.objects.get(id=item_id)
@@ -94,3 +99,23 @@ def delete_item(request, item_id):
         item = LostFoundItem.objects.get(id=item_id, posted_by=request.user)
         item.delete()
         return redirect('my_posts')
+def claim_item(request, item_id):
+    item = get_object_or_404(LostFoundItem, id=item_id)
+
+    if request.method == 'POST':
+        form = ClaimDetailForm(request.POST)
+        if form.is_valid():
+            claim = form.save(commit=False)
+            claim.item = item
+            claim.save()
+            item.item_type = 'Found'  
+            item.save()
+            return redirect('my_posts')  
+    else:
+        form = ClaimDetailForm()
+    
+    return render(request, 'claim_item.html', {'form': form, 'item': item})
+@login_required
+def view_all_claims(request):
+    claims = ClaimDetail.objects.select_related('item__posted_by').all()
+    return render(request, 'view_all_claims.html', {'claims': claims})

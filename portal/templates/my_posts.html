@@ -12,6 +12,7 @@
         <a href="{% url 'home' %}">Home</a>
         <a href="{% url 'find_item' %}">Find item</a>
         <a href="{% url 'post_item' %}">Post item</a>
+        <a href="{% url 'view_all_claims' %}">Claim History</a>
         <a href="{% url 'about_us' %}">About us</a>
         <a href="{% url 'my_posts' %}">My Posts</a>
         <a href="{% url 'logout' %}">Logout</a>
@@ -26,14 +27,18 @@
                 <h3>{{ item.title }}</h3>
                 <img src="{{ item.image.url }}" width="200" />
                 <p>{{ item.description|truncatechars:100 }}</p>
-                <form method="POST" action="{% url 'delete_item' item.id %}">
-                    {% csrf_token %}
-                    <button type="submit">Delete</button>
-                </form>
-            </div>
-        {% empty %}
-            <p>No items posted yet.</p>
-        {% endfor %}
+                {% if item.claimdetail %}
+            <span class="text-success" style= "font-size:1.2rem; color: black;">✅ Claimed</span>
+        {% else %}
+            <form action="{% url 'claim_item' item.id %}" method="get">
+                <button class="btn btn-success">Mark as Found</button>
+            </form>
+        {% endif %}
+        
+    </div>
+{% empty %}
+    <p>No items posted yet.</p>
+{% endfor %}
         
     </div>
 </body>
